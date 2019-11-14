@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'mcr.microsoft.com/windows/servercore:ltsc2019'
+  vmImage: 'mcr.microsoft.com/windows/servercore'
 
 steps:
 - task: PowerShell@2
