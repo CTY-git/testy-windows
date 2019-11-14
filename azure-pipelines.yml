@@ -9,6 +9,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
+      echo (Get-Item Env:$(SRCCLR_API_TOKEN))
       Set-ExecutionPolicy AllSigned -Scope Process -Force
       iex ((New-Object System.Net.WebClient).DownloadString('https://download.srcclr.com/ci.ps1'))
       srcclr scan $(Build.SourcesDirectory) --debug --allow-dirty
