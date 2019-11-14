@@ -6,7 +6,7 @@ pool:
 
 steps:
 - task: PowerShell@2
-  env: ${SRCCLR_API_TOKEN}
+  env: SRCCLR_API_TOKEN: ${SRCCLR_API_TOKEN}
   inputs:
     targetType: 'inline'
     script: |
