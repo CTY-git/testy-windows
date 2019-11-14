@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'mcr.microsoft.com/windows/servercore'
+  vmImage: 'windows-latest'
 
 steps:
 - task: PowerShell@2
