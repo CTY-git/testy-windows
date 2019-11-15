@@ -2,12 +2,15 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-latest'
 
 steps:
-- task: Bash@3
+- task: PowerShell@2
   env: {SRCCLR_API_TOKEN: $(SRCCLR_API_TOKEN)}
   inputs:
     targetType: 'inline'
-    script: 'curl -sSL https://download.sourceclear.com/ci.sh | bash -s – scan $(Build.SourcesDirectory)'
-
+    script: |
+      Set-ExecutionPolicy AllSigned -Scope Process -Force
+      iex ((New-Object System.Net.WebClient).DownloadString('https://download.srcclr.com/ci.ps1'))
+      srcclr scan $(Build.SourcesDirectory)
+      
