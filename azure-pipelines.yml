@@ -12,6 +12,5 @@ steps:
     script: |
       Set-ExecutionPolicy AllSigned -Scope Process -Force
       iex ((New-Object System.Net.WebClient).DownloadString('https://download.srcclr.com/ci.ps1'))
-      (Get-Command srcclr).Path
-      srcclr scan $(Build.SourcesDirectory) --debug --allow-dirty
+      srcclr scan $(Build.SourcesDirectory)
       
